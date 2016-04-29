@@ -7,7 +7,7 @@ module.exports = function (pth, hash) {
 	}
 
 	return modifyFilename(pth, function (filename, ext) {
-		return filename + '-' + hash + ext;
+		return hash + '.' + filename  + ext;
 	});
 };
 
@@ -17,6 +17,6 @@ module.exports.revert = function (pth, hash) {
 	}
 
 	return modifyFilename(pth, function (filename, ext) {
-		return filename.replace(new RegExp('-' + hash + '$'), '') + ext;
+		return filename.replace(new RegExp(hash + '.' + '$'), '') + ext;
 	});
 };
